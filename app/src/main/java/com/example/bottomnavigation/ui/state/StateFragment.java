@@ -1,4 +1,4 @@
-package com.example.bottomnavigation.ui.home;
+package com.example.bottomnavigation.ui.state;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,20 +12,20 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.bottomnavigation.databinding.FragmentStateBinding;
 
-public class HomeFragment extends Fragment {
+public class StateFragment extends Fragment {
 
     private FragmentStateBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        StateViewModel stateViewModel =
+                new ViewModelProvider(this).get(StateViewModel.class);
 
         binding = FragmentStateBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textState;
+        stateViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
