@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_time"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/gradient_background"
@@ -60,25 +61,37 @@
         android:src="@drawable/rectangle" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/start_measurement_edittext_numbers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/rectimage2"
+        android:layout_alignRight="@id/start_measurement_button_ok"
         android:layout_alignTop="@id/rectimage2"
-        android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp"
         app:errorEnabled="false"
         app:hintEnabled="false"
         app:endIconMode="clear_text">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:paddingTop="16dp"
+        <EditText
+            android:id="@+id/start_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00000000"
             android:fontFamily="@font/roboto_bold"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="3"
+            android:paddingStart="0dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="0dp"
+            android:text="60" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/start_measurement_button_cancel"
+        android:layout_alignTop="@id/rectimage2"
+        android:layout_marginTop="45dp"
+        android:entries="@array/time" />
 
     <Button
         android:id="@+id/start_measurement_button_ok"
@@ -86,7 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rectimage2"
         android:layout_alignLeft="@id/rectimage2"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="45dp"
         android:layout_marginBottom="10dp"
         android:text="OK" />
 
@@ -96,8 +109,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rectimage2"
         android:layout_alignRight="@id/rectimage2"
-        android:layout_marginRight="30dp"
+        android:layout_marginRight="45dp"
         android:layout_marginBottom="10dp"
-        android:text="CANCEL" />
+        android:text="CANCEL"/>
 </RelativeLayout>
 

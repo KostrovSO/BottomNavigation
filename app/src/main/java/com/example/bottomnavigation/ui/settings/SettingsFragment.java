@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.bottomnavigation.R;
 import com.example.bottomnavigation.databinding.FragmentSettingsBinding;
 
 public class SettingsFragment extends Fragment {
@@ -28,6 +29,7 @@ public class SettingsFragment extends Fragment {
         settingsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
+
 
     @Override
     public void onDestroyView() {

@@ -1,16 +1,21 @@
 package com.example.bottomnavigation;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.bottomnavigation.ui.StartMeasurements;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -18,9 +23,13 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.bottomnavigation.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements StartMeasurements.OnInputListener {
 
     private ActivityMainBinding binding;
+    String[] time = {"секунды", "минуты", "часы"};
+    private static final String TAG = "MainActivity";
+    public String mInput;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +55,25 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+
     public void showDialog(View v) {
 
         StartMeasurements dialog = new StartMeasurements();
         dialog.show(getSupportFragmentManager(), "custom");
     }
 
+
+    @Override
+    public void sendInput(String input) {
+        Log.d(TAG, "sendInput: got the input: " + input);
+
+        mInput = input;
+
+        setInputToTextView();
+    }
+    private void setInputToTextView()
+    {
+        TextView textView = findViewById(R.id.text_settings);
+        textView.setText(mInput);
+    }
 }

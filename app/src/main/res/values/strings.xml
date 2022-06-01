@@ -6,4 +6,10 @@
     <string name="title_about">О программе</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="time">
+        <item>секунд</item>
+        <item>минут</item>
+        <item>часов</item>
+    </string-array>
 </resources>
